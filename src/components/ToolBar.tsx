@@ -54,6 +54,16 @@ const ToolBar = () => {
                 })
               }
             />
+            <SwitchItem
+              label="Title Text"
+              value={settings.showTitle}
+              onChange={() =>
+                setSettings({
+                  ...settings,
+                  showTitle: !settings.showTitle,
+                })
+              }
+            />
             <SelectItem
               label="Font Size"
               options={[
@@ -105,6 +115,11 @@ const ToolBar = () => {
                 "json",
                 "xml",
                 "text",
+                "wast",
+                "lezer",
+                "sql",
+                "php",
+                "swift",
               ].sort((a, b) => (a < b ? -1 : 1))}
               value={settings.language}
               onChange={(value) => {
@@ -171,13 +186,13 @@ const ToolBar = () => {
                     className="outline-none cursor-pointer px-4 h-8 rounded focus:bg-primary-500 focus:text-white flex items-center gap-2"
                     onClick={() => onCopyAsLink()}
                   >
-                    Copy as Link
+                    Copy URL
                   </DropdownMenu.Item>
                   <DropdownMenu.Item
                     className="outline-none cursor-pointer px-4 h-8 rounded focus:bg-primary-500 focus:text-white flex items-center gap-2"
                     onClick={() => onCopyAsImage()}
                   >
-                    Copy as image
+                    Copy Image
                   </DropdownMenu.Item>
                 </DropdownMenu.Content>
               </DropdownMenu.Root>
