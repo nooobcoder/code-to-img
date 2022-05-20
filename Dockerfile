@@ -2,10 +2,11 @@ FROM node:slim
 
 WORKDIR /app
 COPY package.json /app
-RUN yarn install
+RUN yarn install -f
 
 COPY . /app
+RUN yarn build
 
 EXPOSE 3000
 
-CMD ["yarn", "dev"]
+CMD ["yarn", "start"]
